@@ -1,0 +1,49 @@
+.userlist_box {
+    margin-top: 4rem;
+    background: var(--bg-color);
+}
+
+.userlist_box--title {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.userlist_box--users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.userlist_box--users--user {
+    background: var(--bg-box-color);
+    box-shadow: var(--boxshadow);
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.userlist_box--users--user img {
+    border-radius: 50%;
+}
+
+.userlist_box--users--user--text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--text-color);
+    margin-top: 1rem;
+}
+
+.userlist_box--page_box {
+    text-align: center;
+}
+
+.userlist_box--page_box--singlepage {
+    margin: 0.5rem;
+}

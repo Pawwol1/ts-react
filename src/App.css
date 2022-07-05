@@ -6,7 +6,13 @@
 
 :root {
     --bg-color: linear-gradient(45deg, lightblue, lightyellow);
-    --bg-box-color: linear-gradient(90deg, lightblue, lightyellow);
+    --bg-box-color: linear-gradient(90deg, lightyellow, lightblue);
     --text-color: rgba(0, 0, 0, 0.7);
     --boxshadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+body {
+    background: var(--bg-color);
+    font-size: 16px;
+    font-family:'Courier New', Courier, monospace
 }
