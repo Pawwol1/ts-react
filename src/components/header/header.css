@@ -1,0 +1,28 @@
+header {
+    background: var(--bg-color);
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_box {
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: var(--boxshadow);
+    color: var(--text-color);
+}
+
+.header_box--title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.header_box--text {
+    font-size: 1rem;
+}
