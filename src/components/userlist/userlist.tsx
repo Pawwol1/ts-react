@@ -14,11 +14,20 @@ function Userlist() {
 const [users, setUsers] = useState<User[]>([]);
 const [page, setPage] = useState<Number>(1);
 
+
 const getUsers = async () => {
     const res = await fetch(`https://reqres.in/api/users?page=${page}`);
+    if (!res.ok) {
+        const err = "User not Found";
+        throw new Error(err);
+    }
     const data = await res.json();
+
     setUsers(data.data)
+    console.log(data);
+
 };
+
 
 useEffect(() => {
     getUsers();
@@ -33,7 +42,9 @@ const handlePageChange = (e: MouseEvent ) => {
         <div className='userlist_box'>
             <h2 className='userlist_box--title'>User list</h2>
             <div className='userlist_box--users'>
-                {users.map(user => {
+
+                {users.length 
+                ? users.map(user => {
                     return (
                         <div className='userlist_box--users--user' key={user.id}>
                             <img key={user.avatar} src={user.avatar}/>
@@ -43,7 +54,8 @@ const handlePageChange = (e: MouseEvent ) => {
                             </div>
                         </div>
                     )
-                })}
+                })
+                : <p>Users not found</p>}
             </div>
             <div className="userlist_box--page_box">
                     <p>Strona:</p>
