@@ -16,19 +16,18 @@ const [users, setUsers] = useState<User[]>([]);
 const [page, setPage] = useState<number>(1);
 const [totalPages, setTotalPages] = useState<number>(1);
 
-const getUsers = async () => {
-    const res = await fetch(`https://reqres.in/api/users?page=${page}`);
-    if (!res.ok) {
-        const err = "User not Found";
-        throw new Error(err);
-    }
-    const data = await res.json();
-    setUsers(data.data);
-    // setTotalPages(Array(data.total_pages).fill(1));
-    setTotalPages(data.total_pages);
-};
-
 useEffect(() => {
+    const getUsers = async () => {
+        const res = await fetch(`https://reqres.in/api/users?page=${page}`);
+        if (!res.ok) {
+            const err = "User not Found";
+            throw new Error(err);
+        }
+        const data = await res.json();
+        setUsers(data.data);
+        // setTotalPages(Array(data.total_pages).fill(1));
+        setTotalPages(data.total_pages);
+    };
     getUsers();
 }, [page])
 
