@@ -7,7 +7,7 @@ header {
 }
 
 .header_box {
-    background: var(--bg-color);
+    background: var(--bg-box-color);
     display: flex;
     justify-content: center;
     align-items: center;
