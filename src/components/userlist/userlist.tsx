@@ -1,8 +1,8 @@
 import React, { useEffect, useState, MouseEvent } from 'react';
 import { Pagination } from '@mui/material';
+import UserlistSearch from '../userlistSearch/userlistSearch';
 import "./userlist.css";
-
-interface User {
+export interface User {
     id: number,
     first_name: string,
     last_name: string,
@@ -38,6 +38,7 @@ useEffect(() => {
 
     return (
         <div className='userlist_box'>
+            <UserlistSearch users={users}/>
             <h2 className='userlist_box--title'>User list</h2>
             <div className='userlist_box--users'>
 
