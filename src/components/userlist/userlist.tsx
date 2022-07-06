@@ -1,4 +1,5 @@
 import React, { useEffect, useState, MouseEvent } from 'react';
+import { Pagination } from '@mui/material';
 import "./userlist.css";
 
 interface User {
@@ -12,8 +13,8 @@ interface User {
 function Userlist() {
 
 const [users, setUsers] = useState<User[]>([]);
-const [page, setPage] = useState<Number>(1);
-
+const [page, setPage] = useState<number>(1);
+const [totalPages, setTotalPages] = useState<number>(1);
 
 const getUsers = async () => {
     const res = await fetch(`https://reqres.in/api/users?page=${page}`);
@@ -22,21 +23,19 @@ const getUsers = async () => {
         throw new Error(err);
     }
     const data = await res.json();
-
-    setUsers(data.data)
-    console.log(data);
-
+    setUsers(data.data);
+    // setTotalPages(Array(data.total_pages).fill(1));
+    setTotalPages(data.total_pages);
 };
-
 
 useEffect(() => {
     getUsers();
 }, [page])
 
-const handlePageChange = (e: MouseEvent ) => {
-    e.preventDefault();
-    setPage(parseInt(e.currentTarget.id));
-}
+// const handlePageChange = (e: MouseEvent ) => {
+//     e.preventDefault();
+//     setPage(parseInt(e.currentTarget.id));
+// }
 
     return (
         <div className='userlist_box'>
@@ -55,12 +54,27 @@ const handlePageChange = (e: MouseEvent ) => {
                         </div>
                     )
                 })
-                : <p>Users not found</p>}
+                : <p style={{
+                     fontSize: "2rem",
+                     color: "red"}}>
+                        Users not found
+                  </p>}
+
             </div>
             <div className="userlist_box--page_box">
                     <p>Strona:</p>
-                    <a href="" id="1" className="userlist_box--page_box--singlepage" onClick={(e) => handlePageChange(e)}>1</a>
-                    <a href="" id="2" className="userlist_box--page_box--singlepage" onClick={(e) => handlePageChange(e)}>2</a>
+                    {/* {totalPages.map((page, id) => {
+                        return ( 
+                        <a key={id} 
+                                href="" 
+                                id={(id + page).toString()}
+                                className="userlist_box--page_box--singlepage"
+                                onClick={(e) => handlePageChange(e)}
+                        >
+                                {id + page}
+                        </a> )
+                    })} */}
+                    <Pagination count={totalPages} onChange={(e, page) => setPage(page)}></Pagination>
             </div>
         </div>
     );

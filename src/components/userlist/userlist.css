@@ -11,7 +11,8 @@
 
 .userlist_box--users,
 .userlist_box--users--user,
-.userlist_box--users--user--text {
+.userlist_box--users--user--text,
+.userlist_box--page_box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +43,7 @@
 }
 
 .userlist_box--page_box {
-    text-align: center;
+    flex-direction: column;
     font-size: 1.5rem;
     margin: 2rem 0;
 }
