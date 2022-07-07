@@ -25,6 +25,7 @@ useEffect(() => {
         }
         const data = await res.json();
         setUsers(data.data);
+        console.log(data);
         // setTotalPages(Array(data.total_pages).fill(1));
         setTotalPages(data.total_pages);
     };
@@ -39,7 +40,9 @@ useEffect(() => {
     return (
         <div className='userlist_box'>
             <UserlistSearch users={users}/>
-            <h2 className='userlist_box--title'>User list</h2>
+            <h2 className='userlist_box--title'>
+                User list
+            </h2>
             <div className='userlist_box--users'>
 
                 {users.length 
