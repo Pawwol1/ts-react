@@ -1,0 +1,16 @@
+.pageNotFound_box {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pageNotFound_box--title {
+    padding: 3rem 0;
+    font-size: 3rem;
+}
+
+.pageNotFound_box--link {
+    font-size: 2rem;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "../userlist";
+import { Link } from 'react-router-dom';
 import "../userlist.css";
 
 function ListOfUsers({users}: {users: User[]}) {
@@ -14,6 +15,7 @@ function ListOfUsers({users}: {users: User[]}) {
                                 <p>{user.first_name} {user.last_name}</p>
                                 <p>{user.email}</p>
                             </div>
+                            <Link to="/user">Go to user page</Link>
                         </div>
                     )
                 })

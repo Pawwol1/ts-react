@@ -1,19 +1,18 @@
 import React from 'react';
-import Header from './components/header/header';
-import PageNotFound from './components/pageNotFound/pageNotFound';
-import Sidebar from './components/sidebar/sidebar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserDetails from './components/userDetails/userDetails';
-import Userlist from './components/userlist/userlist';
+import PageNotFound from './components/pageNotFound/pageNotFound';
+import Main from './components/Main';
 
 function App() {
   return (
-    <>
-      <Header/>
-      <Userlist/>
-      <UserDetails/>
-      <PageNotFound/>
-      <Sidebar/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main/>} />
+        <Route path="/user" element={<UserDetails/>} />
+        <Route path="*" element={<PageNotFound/>} />
+      </Routes>  
+    </BrowserRouter>
   );
 }
 

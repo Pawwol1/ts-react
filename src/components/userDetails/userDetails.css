@@ -7,6 +7,7 @@
     padding-bottom: 2rem;
 }
 
+.userDetails_box--link,
 .userDetails_box--form,
 .userDetails_box--user {
     display: flex;
@@ -30,3 +31,9 @@
     padding: 0.5rem;
     font-family:'Courier New', Courier, monospace;
 }
+
+.userDetails_box--link {
+    padding-bottom: 3rem;
+    justify-content: center;
+} 
+

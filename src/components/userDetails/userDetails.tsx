@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./userDetails.css";
 
 function UserDetails() {
@@ -8,6 +9,7 @@ function UserDetails() {
                 <h2>Jan Kowalski</h2>
                 <p>Miejsce na avatar</p>
             </div>
+            <Link to="/" className='userDetails_box--link'>Back to main page</Link>
             <form className='userDetails_box--form' autoComplete='off'>
                 <h3 className="userDetails_box--form--contact">Contact with "Jan Kowalski"!</h3>
                 <label htmlFor="title" className="userDetails_box--form--title">
