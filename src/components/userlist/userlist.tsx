@@ -27,7 +27,6 @@ useEffect(() => {
         const data = await res.json();
         setUsers(data.data);
         setTotalPages(data.total_pages);
-        console.log(data.data[0])
     };
     getUsers();
 }, [page, URL])
