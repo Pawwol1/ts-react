@@ -1,5 +1,6 @@
 .userlistSearch_box,
-.userlistSearch_box--inputwrapper {
+.userlistSearch_box--inputwrapper,
+.userlistSearch_box--userlist {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,8 +11,8 @@
     padding-bottom: 2rem;
 }
 
-.userlistSearch_box--inputwrapper {
-    padding: 1.5rem 0;
+.userlistSearch_box--inputwrapper,
+.userlistSearch_box--userlist {
     flex-wrap: wrap;
 }
 
@@ -25,4 +26,8 @@
 
 .userlistSearch_box--userlist--notfound {
     font-size: 1.5rem;
+}
+
+.userlistSearch_box--inputwrapper {
+    padding: 1.5rem 0;
 }

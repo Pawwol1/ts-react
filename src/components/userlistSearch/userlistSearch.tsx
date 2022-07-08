@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Button } from '@mui/material';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { User } from '../userlist/userlist';
+import ListOfUsers from '../userlist/listOfUsers/listOfUsers';
 import "./userlistSearch.css";
 
 function UserlistSearch({users}: {users: User[]}) {
 
-    const [userlist, setUserlist] = useState<{
-        first_name: string;
-        last_name: string;
-        email: string
-    }[] | undefined>(users);
-
+    const [userlist, setUserlist] = useState<User[] | undefined>(users);
     const [searchValue, setSearchValue] = useState<string>('');
+
+    useEffect(() => {
+        setUserlist(users);
+    },[users, searchValue])
 
     const handleOnClick = () => {
         const findUsers = 
@@ -34,20 +34,20 @@ function UserlistSearch({users}: {users: User[]}) {
             </div>
             <div className='userlistSearch_box--inputwrapper'>
                 <input 
-                type="text" 
-                placeholder={userSearchInputPlaceholder} 
-                value={searchValue}
-                onChange={e => {
-                    setSearchValue(e.target.value);
-                    setUserlist(users);
-                }}
+                    type="text" 
+                    placeholder={userSearchInputPlaceholder} 
+                    value={searchValue}
+                    onChange={e => {
+                        setSearchValue(e.target.value);
+                    }}
                 />
                 <Button 
-                variant="text"
-                size="small"
-                endIcon={<SearchRoundedIcon/>}
-                disabled={!searchValue}
-                onClick={handleOnClick}>
+                    variant="text"
+                    size="small"
+                    endIcon={<SearchRoundedIcon/>}
+                    disabled={!searchValue}
+                    onClick={handleOnClick}
+                >
                     {buttonText}
                 </Button>
             </div>
@@ -58,15 +58,8 @@ function UserlistSearch({users}: {users: User[]}) {
 
                 {userlist &&
                  userlist?.length> 0 && 
-                 userlist?.map((user, id) => {
-                    return (
-                        <div key={id} className="userlistSearch_box--userlist--user">
-                             <h3>{user?.first_name}</h3>
-                              <p>{user?.last_name}</p>
-                              <p>{user?.email}</p>  
-                        </div>
-                    )
-                })}
+                 <ListOfUsers users={userlist}/>
+                }
             </div>  
         </div>
     );

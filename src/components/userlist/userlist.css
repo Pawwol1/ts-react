@@ -3,23 +3,12 @@
     background: var(--bg-color);
 }
 
-.userlist_box--title {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.userlist_box--users,
 .userlist_box--users--user,
 .userlist_box--users--user--text,
 .userlist_box--page_box {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.userlist_box--users {
-    flex-wrap: wrap;
 }
 
 .userlist_box--users--user {
@@ -45,9 +34,8 @@
 .userlist_box--page_box {
     flex-direction: column;
     font-size: 1.5rem;
-    margin: 2rem 0;
 }
 
-.userlist_box--page_box--singlepage {
-    margin: 0.5rem;
+.userlist_box--page_box p {
+    padding-bottom: 1rem;
 }
