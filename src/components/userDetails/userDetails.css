@@ -1,0 +1,32 @@
+.userDetails_box {
+    padding: 4rem;
+}
+
+.userDetails_box--user {
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+}
+
+.userDetails_box--form,
+.userDetails_box--user {
+    display: flex;
+    align-items: center;
+}
+
+.userDetails_box--form {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userDetails_box--form--contact,
+.userDetails_box--form--title,
+.userDetails_box--form--message {
+    padding: 0.5rem;
+}
+
+.userDetails_box--form--title input,
+.userDetails_box--form--message textarea {
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-family:'Courier New', Courier, monospace;
+}
