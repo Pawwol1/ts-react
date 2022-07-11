@@ -1,0 +1,32 @@
+.sidebar_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.sidebar_box--title,
+.sidebar_box--text,
+.sidebar_box--img {
+    padding: 1rem 0;
+}
+
+.sidebar_box--img {
+    height: 300px;
+}
+
+.sidebar_box--button {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.sidebar_box--button:hover {
+    box-shadow: var(--boxshadow);
+}

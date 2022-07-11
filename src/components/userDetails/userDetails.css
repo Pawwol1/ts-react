@@ -49,6 +49,7 @@
     border: none;
     cursor: pointer;
     padding: 0.75rem;
+    transition: box-shadow 0.3s;
 }
 
 .userDetails_box--form--button:hover {
