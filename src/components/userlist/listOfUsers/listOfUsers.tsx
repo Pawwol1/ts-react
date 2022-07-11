@@ -15,7 +15,7 @@ function ListOfUsers({users}: {users: User[]}) {
                                 <p>{user.first_name} {user.last_name}</p>
                                 <p>{user.email}</p>
                             </div>
-                            <Link to="/user">Go to user page</Link>
+                            <Link to={`/user/${user.id}`}>Go to user page</Link>
                         </div>
                     )
                 })

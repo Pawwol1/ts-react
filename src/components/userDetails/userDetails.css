@@ -9,7 +9,8 @@
 
 .userDetails_box--link,
 .userDetails_box--form,
-.userDetails_box--user {
+.userDetails_box--user,
+.userDetails_notFound {
     display: flex;
     align-items: center;
 }
@@ -35,5 +36,12 @@
 .userDetails_box--link {
     padding-bottom: 3rem;
     justify-content: center;
-} 
+}
+
+.userDetails_notFound {
+    height: 50vh;
+    font-size: 2rem;
+    color: red;
+    justify-content: center;
+}
 

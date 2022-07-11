@@ -1,28 +1,83 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { User } from '../userlist/userlist';
 import "./userDetails.css";
 
 function UserDetails() {
+
+    const [user, setUser] = useState<User>({
+        id: 1,
+        first_name: "",
+        last_name: "",
+        email: "",
+        avatar: ""
+    });
+    const [totalUsers, setTotalUsers] = useState<number>(1);
+    const {userID} = useParams();
+
+    useEffect(() => {
+        const getSingleUser = async () => {
+            const resp = await fetch(`https://reqres.in/api/users/${userID}`);
+            if (!resp.ok) {
+                const err = "User not Found";
+                throw new Error(err);
+            }
+            const data = await resp.json();
+            setUser(data.data);
+        }
+        getSingleUser();
+    }, [userID])
+
+    useEffect(() => {
+        const getTotalUsers = async () => {
+            const resp = await fetch("https://reqres.in/api/users");
+            if (!resp.ok) {
+                const err = "User not Found";
+                throw new Error(err);
+            }
+            const data = await resp.json();
+            setTotalUsers(data.total);
+        };
+        getTotalUsers();
+    }, [])
+
+    const userNotFound: string = "User not found";
+    const contactUser: string = `Contact with ${user?.first_name} ${user?.last_name}!`;
+    const linkMsg: string = "Back to the main page";
+    const titleLabel: string = "Title: ";
+    const textareaPlaceholder: string = "Start typing...";
+    const btnMsg: string = "Send message";
+
     return (
-        <div className='userDetails_box'>
+        <>
+
+        {user?.id >= 1 && user?.id <= totalUsers
+
+        ? <div className='userDetails_box'>
             <div className='userDetails_box--user'>
-                <h2>Jan Kowalski</h2>
-                <p>Miejsce na avatar</p>
+                <h2>{user?.first_name} {user?.last_name}</h2>
+                <img src={user?.avatar} alt="user avatar" />  
             </div>
-            <Link to="/" className='userDetails_box--link'>Back to main page</Link>
             <form className='userDetails_box--form' autoComplete='off'>
-                <h3 className="userDetails_box--form--contact">Contact with "Jan Kowalski"!</h3>
+                <h3 className="userDetails_box--form--contact">{contactUser}</h3>
                 <label htmlFor="title" className="userDetails_box--form--title">
-                    Tytuł: 
+                    {titleLabel} 
                     <input type="text" id="title" />
                 </label>
                 <label htmlFor="message" className="userDetails_box--form--message">
-                    <textarea name="message" id="message" cols={30} rows={10} placeholder="Zacznij pisać...">
+                    <textarea name="message" id="message" cols={30} rows={10} placeholder={textareaPlaceholder}>
                     </textarea>
                 </label>
-                <button type="submit">Wyślij</button>
+                <button type="submit">{btnMsg}</button>
             </form>
-        </div>
+          </div>
+
+        : <p className="userDetails_notFound">
+                {userNotFound}
+          </p> }
+          <Link to="/" className='userDetails_box--link'>{linkMsg}</Link>
+
+        </>
     );
 }
 
