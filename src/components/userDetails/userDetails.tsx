@@ -6,7 +6,7 @@ import "./userDetails.css";
 function UserDetails() {
 
     const [user, setUser] = useState<User>({
-        id: 1,
+        id: 0,
         first_name: "",
         last_name: "",
         email: "",
