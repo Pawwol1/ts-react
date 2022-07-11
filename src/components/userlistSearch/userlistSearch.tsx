@@ -15,10 +15,15 @@ function UserlistSearch({users}: {users: User[]}) {
     },[users, searchValue])
 
     const handleOnClick = () => {
+        const searchToLowerCase = (value: string) => {
+            return value.toLowerCase().includes(searchValue.toLowerCase())
+        }
+
         const findUsers = 
         userlist && userlist?.length > 0 
-            ? userlist?.filter((user) => user?.first_name.toLowerCase().includes(searchValue.toLowerCase()) || user?.last_name.toLowerCase().includes(searchValue.toLowerCase()) || user?.email.toLowerCase().includes(searchValue.toLowerCase()))
+            ? userlist?.filter((user) => searchToLowerCase(user?.first_name) || searchToLowerCase(user?.last_name) || searchToLowerCase(user?.email))
             : undefined
+            
         setUserlist(findUsers);
     }
 
