@@ -7,6 +7,10 @@
     padding-bottom: 2rem;
 }
 
+.userDetails_box--user img {
+    padding-left: 1rem;
+}
+
 .userDetails_box--link,
 .userDetails_box--form,
 .userDetails_box--user,
@@ -38,6 +42,19 @@
     justify-content: center;
 }
 
+.userDetails_box--form--button {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+}
+
+.userDetails_box--form--button:hover {
+    box-shadow: var(--boxshadow);
+}
+
 .userDetails_notFound {
     height: 50vh;
     font-size: 2rem;
@@ -45,3 +62,7 @@
     justify-content: center;
 }
 
+.userDetails_box--form--error {
+    padding: 1rem 0;
+    color: red;
+}
