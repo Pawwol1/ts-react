@@ -7,7 +7,6 @@ import './sidebar.css';
 type Anchor = 'left' | 'right';
 
 function Sidebar() {
-
     const [shiba, setShiba] = useState<string>("");
     const [refresh, setRefresh] = useState<number>(1);
     const [isOpen, setIsOpen] = useState({
@@ -41,7 +40,6 @@ function Sidebar() {
       ) {
         return;
       }
-
       setIsOpen({ ...isOpen, [anchor]: open });
     };
 
@@ -49,7 +47,6 @@ function Sidebar() {
     <Box
       sx={{ width: 250 }}
       role="presentation"
-      
       onKeyDown={toggleSidebar(anchor, false)}
     >
         <div className='sidebar_box'>
