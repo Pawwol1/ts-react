@@ -1,5 +1,5 @@
 .userDetails_box {
-    padding: 4rem;
+    padding: 4rem 4rem 2rem 4rem;
 }
 
 .userDetails_box--user {
@@ -65,4 +65,9 @@
 .userDetails_box--form--error {
     padding: 1rem 0;
     color: red;
+}
+
+.userDetails_box--form--sent {
+    padding: 1rem 0 0 0;
+    color: green;
 }

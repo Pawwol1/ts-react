@@ -4,7 +4,6 @@ import { User } from '../userlist/userlist';
 import "./userDetails.css";
 
 function UserDetails() {
-
     const [user, setUser] = useState<User>({
         id: 0,
         first_name: "",
@@ -20,7 +19,8 @@ function UserDetails() {
     });
     const [formTitleError, setFormTitleError] = useState<boolean>(false);
     const [formMsgError, setFormMsgError] = useState<boolean>(false);
-
+    const [emptySpaceError, setEmptySpaceError] = useState<boolean>(false);
+    const [msgSent, setMsgSent] = useState<boolean>(false);
     const {userID} = useParams();
 
     useEffect(() => {
@@ -51,23 +51,22 @@ function UserDetails() {
 
     useEffect(() => {
         if (formMsg.title || formMsg.message !== "") {
-            setFormTitleError(formMsg.title.length < 2);
-            setFormMsgError(formMsg.message.length <= 4);
+            setFormTitleError(formMsg.title.length < 1 || formMsg.title.length > 255 || formMsg.title.includes("  ")); 
+            setFormMsgError(formMsg.message.length <= 4 || formMsg.message.length > 500 || formMsg.message.includes("  "));
+            setEmptySpaceError(formMsg.title.split("").shift() === " " || formMsg.message.split("").shift() === " ")
         }
     }, [formMsg])
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-
         setFormMsg({
             toUser: "",
             title: "",
             message: ""
         });
-
-        if (!formTitleError && !formMsgError && formMsg.title !== "" && formMsg.message !== "") {
-            console.log(formMsg);
-            };
+        if (!!formMsg.title && !!formMsg.message) {
+            setMsgSent(true);
+        } 
     }
 
     const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -78,6 +77,7 @@ function UserDetails() {
                 title: e.target.value
             }
         });
+        setMsgSent(false);
     }
 
     const handleMsgChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -87,7 +87,7 @@ function UserDetails() {
                 message: e.target.value
             }
         });
-        
+        setMsgSent(false);
     }
 
     const userNotFound: string = "User not found";
@@ -96,14 +96,14 @@ function UserDetails() {
     const titleLabel: string = "Title: ";
     const textareaPlaceholder: string = "Start typing...";
     const btnMsg: string = "Send message";
-    const titleErr : string = "Please add a title";
-    const msgErr : string = "Message have to be longer than four letters";
+    const titleErr : string = "The title must be 1 to 255 characters with no double spaces";
+    const msgErr : string = "The message must be 4 to 500 characters with no double spaces";
+    const emptySpaceErr: string = "The first character cannot be an empty space";
+    const messageSent: string = "The message has been sent successfully";
 
     return (
         <>
-
         {user?.id >= 1 && user?.id <= totalUsers
-
         ? <div className='userDetails_box'>
             <div className='userDetails_box--user'>
                 <h3>{user?.first_name} {user?.last_name}</h3>
@@ -116,19 +116,19 @@ function UserDetails() {
                     <input type="text" id="title" value={formMsg.title} onChange={handleTitleChange}/>
                 </label>
                 {formTitleError && <p className="userDetails_box--form--error">{titleErr}</p>}
+                {emptySpaceError && <p className="userDetails_box--form--error">{emptySpaceErr}</p>}
                 <label htmlFor="message" className="userDetails_box--form--message">
                     <textarea name="message" id="message" value={formMsg.message} onChange={handleMsgChange} cols={25} rows={10} placeholder={textareaPlaceholder}/>
                 </label>
                 {formMsgError && <p className="userDetails_box--form--error">{msgErr}</p>}
                 <button className='userDetails_box--form--button' type="submit" disabled={formTitleError || formMsgError}>{btnMsg}</button>
+                {msgSent && <p className="userDetails_box--form--sent">{messageSent}</p>}
             </form>
           </div>
-
         : <p className="userDetails_notFound">
                 {userNotFound}
           </p> }
           <Link to="/" className='userDetails_box--link'>{linkMsg}</Link>
-
         </>
     );
 }
