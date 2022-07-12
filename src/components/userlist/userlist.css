@@ -28,7 +28,7 @@
 .userlist_box--users--user--text {
     flex-direction: column;
     color: var(--text-color);
-    margin-top: 1rem;
+    padding: 0.5rem 0;
 }
 
 .userlist_box--page_box {

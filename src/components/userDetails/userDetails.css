@@ -1,0 +1,73 @@
+.userDetails_box {
+    padding: 4rem 4rem 2rem 4rem;
+}
+
+.userDetails_box--user {
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+}
+
+.userDetails_box--user img {
+    padding-left: 1rem;
+}
+
+.userDetails_box--link,
+.userDetails_box--form,
+.userDetails_box--user,
+.userDetails_notFound {
+    display: flex;
+    align-items: center;
+}
+
+.userDetails_box--form {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userDetails_box--form--contact,
+.userDetails_box--form--title,
+.userDetails_box--form--message {
+    padding: 0.5rem;
+}
+
+.userDetails_box--form--title input,
+.userDetails_box--form--message textarea {
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.userDetails_box--link {
+    padding-bottom: 3rem;
+    justify-content: center;
+}
+
+.userDetails_box--form--button {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+}
+
+.userDetails_box--form--button:hover {
+    box-shadow: var(--boxshadow);
+}
+
+.userDetails_notFound {
+    height: 50vh;
+    font-size: 2rem;
+    color: red;
+    justify-content: center;
+}
+
+.userDetails_box--form--error {
+    padding: 1rem 0;
+    color: red;
+}
+
+.userDetails_box--form--sent {
+    padding: 1rem 0 0 0;
+    color: green;
+}

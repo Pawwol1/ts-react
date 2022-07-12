@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Button } from '@mui/material';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import { SearchRounded } from '@mui/icons-material';
 import { User } from '../userlist/userlist';
 import ListOfUsers from '../userlist/listOfUsers/listOfUsers';
 import "./userlistSearch.css";
@@ -49,7 +49,7 @@ function UserlistSearch({users}: {users: User[]}) {
                 <Button 
                     variant="text"
                     size="small"
-                    endIcon={<SearchRoundedIcon/>}
+                    endIcon={<SearchRounded/>}
                     disabled={!searchValue}
                     onClick={handleOnClick}
                 >
