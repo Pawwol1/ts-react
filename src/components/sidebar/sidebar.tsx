@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
+import { Box, Drawer, Button } from '@mui/material';
 import './sidebar.css';
 
 type Anchor = 'left' | 'right';
@@ -13,6 +11,10 @@ function Sidebar() {
         left: false,
         right: false,
       });
+    const sidebarTitle: string = "Give a smile to shiba!";
+    const sidebarText: string = "We prepared cute shiba images to make your day better!";
+    const btnText: string = "Get new shiba image";
+    const boxTitle: string = "Please choose which side you want to see the surprise on:";
 
     useEffect(() => {
         const getShibaImage = async () => {
@@ -61,15 +63,10 @@ function Sidebar() {
     </Box>
   );
 
-    const sidebarTitle: string = "Give a smile to shiba!";
-    const sidebarText: string = "We prepared cute shiba images to make your day better!";
-    const btnText: string = "Get new shiba image";
-    const boxTitle: string = "Please choose which side you want to see the surprise on:";
-
     return (
       <>
-        <h3 style={{padding: "3rem 0 0 0", textAlign: "center"}}>{boxTitle}</h3>
-          <div className="sidebar_open">
+        <h3 className='sidebar_title'>{boxTitle}</h3>
+        <div className="sidebar_open">
             {(['left', 'right'] as const).map((anchor) => (
             <div key={anchor}>
               <Button onClick={toggleSidebar(anchor, true)} >{anchor}</Button>
@@ -82,7 +79,7 @@ function Sidebar() {
               </Drawer>
             </div>
             ))}
-          </div>
+        </div>
       </>
     );
 }
