@@ -10,16 +10,20 @@ function ListOfUsers({users}: {users: User[]}) {
                 ? users.map(user => {
                     return (
                         <div className='userlist_box--users--user' key={user.id}>
-                            <img key={user.avatar} src={user.avatar}/>
+                            {!user.avatar
+                            ? <img key={user.avatar} src={user.avatar} alt="No photo"/>
+                            : <img key={user.avatar} src={user.avatar} alt="User image"/>
+                            }
                             <div className='userlist_box--users--user--text'>
-                                <p>{user.first_name} {user.last_name}</p>
+                                <p data-testid="user_name">{user.first_name} {user.last_name}</p>
                                 <p>{user.email}</p>
                             </div>
                             <Link to={`/user/${user.id}`}>Go to user page</Link>
                         </div>
                     )
                 })
-                : <p style={{
+                : <p data-testid="user_notFound"
+                     style={{   
                      fontSize: "2rem",
                      color: "red"}}>
                         Users not found

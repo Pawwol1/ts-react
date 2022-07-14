@@ -38,7 +38,11 @@ const pageStr: string = "Page:"
             <UserlistSearch users={users}/>
             <div className="userlist_box--page_box">
                     <p>{pageStr}</p>
-                    <Pagination count={totalPages} onChange={(e, page) => setPage(page)}></Pagination>
+                    <Pagination 
+                    data-testid="pagination"
+                    count={totalPages} 
+                    onChange={(e, page) => setPage(page)}
+                    />
             </div>
         </div>
     );
