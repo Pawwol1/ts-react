@@ -23,6 +23,18 @@ function UserDetails() {
     const [msgSent, setMsgSent] = useState<boolean>(false);
     const {userID} = useParams();
 
+    const userNotFound: string = "User not found";
+    const contactUser: string = `Contact with ${user?.first_name} ${user?.last_name}!`;
+    const linkMsg: string = "Back to the main page";
+    const titleLabel: string = "Title: ";
+    const textareaPlaceholder: string = "Start typing...";
+    const inputPlaceholder: string = "...";
+    const btnMsg: string = "Send message";
+    const titleErr : string = "The title must be 1 to 255 characters with no double spaces";
+    const msgErr : string = "The message must be 4 to 500 characters with no double spaces";
+    const emptySpaceErr: string = "The first character cannot be an empty space";
+    const messageSent: string = "The message has been sent successfully";
+
     useEffect(() => {
         const getSingleUser = async () => {
             const resp = await fetch(`https://reqres.in/api/users/${userID}`);
@@ -90,30 +102,22 @@ function UserDetails() {
         setMsgSent(false);
     }
 
-    const userNotFound: string = "User not found";
-    const contactUser: string = `Contact with ${user?.first_name} ${user?.last_name}!`;
-    const linkMsg: string = "Back to the main page";
-    const titleLabel: string = "Title: ";
-    const textareaPlaceholder: string = "Start typing...";
-    const btnMsg: string = "Send message";
-    const titleErr : string = "The title must be 1 to 255 characters with no double spaces";
-    const msgErr : string = "The message must be 4 to 500 characters with no double spaces";
-    const emptySpaceErr: string = "The first character cannot be an empty space";
-    const messageSent: string = "The message has been sent successfully";
-
     return (
         <>
         {user?.id >= 1 && user?.id <= totalUsers
         ? <div className='userDetails_box'>
             <div className='userDetails_box--user'>
                 <h3>{user?.first_name} {user?.last_name}</h3>
-                <img src={user?.avatar} alt="user avatar" />  
+                {!user.avatar
+                    ? <img key={user.avatar} src={user.avatar} alt="No photo"/>
+                    : <img key={user.avatar} src={user.avatar} alt="User image"/>
+                 } 
             </div>
             <form className='userDetails_box--form' onSubmit={handleSubmit} autoComplete='off'>
                 <h4 className="userDetails_box--form--contact">{contactUser}</h4>
                 <label htmlFor="title" className="userDetails_box--form--title">
                     {titleLabel} 
-                    <input type="text" id="title" value={formMsg.title} onChange={handleTitleChange}/>
+                    <input type="text" id="title" value={formMsg.title} onChange={handleTitleChange} placeholder={inputPlaceholder}/>
                 </label>
                 {formTitleError && <p className="userDetails_box--form--error">{titleErr}</p>}
                 {emptySpaceError && <p className="userDetails_box--form--error">{emptySpaceErr}</p>}
