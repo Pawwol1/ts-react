@@ -7,8 +7,8 @@ function Main() {
   return (
     <>
       <Header/>
-      <Userlist/>
       <Sidebar/>
+      <Userlist/>
     </>
   );
 }

@@ -1,0 +1,72 @@
+.sidebar_title {
+    padding: 3rem 0 0 0;
+    text-align: center;
+}
+
+.sidebar_open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.sidebar_open Button {
+    font-family:'Courier New', Courier, monospace;
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.sidebar_open Button:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.sidebar_box--close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    font-weight: 900;
+    padding: 0.5rem 0;
+}
+
+.sidebar_box--close:hover {
+    color: lightblue;
+}
+
+.sidebar_box {
+    background: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.sidebar_box--title,
+.sidebar_box--text,
+.sidebar_box--img {
+    padding: 0.5rem 0 1rem 0;
+}
+
+.sidebar_box--img {
+    width: 250px;
+    max-height: 380px;
+}
+
+.sidebar_box--button {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.sidebar_box--button:hover {
+    box-shadow: var(--boxshadow);
+}
