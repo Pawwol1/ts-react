@@ -1,9 +1,9 @@
-import React, { useEffect, useState, MouseEvent } from 'react';
-import { Pagination } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import UserlistSearch from '../userlistSearch/userlistSearch';
+import PaginationComponent from './pagination/pagination';
 import "./userlist.css";
 export interface User {
-    id: number,
+    id?: number,
     first_name: string,
     last_name: string,
     email: string,
@@ -31,19 +31,10 @@ useEffect(() => {
     getUsers();
 }, [page, URL])
 
-const pageStr: string = "Page:"
-
     return (
         <div className='userlist_box'>
             <UserlistSearch users={users}/>
-            <div className="userlist_box--page_box">
-                    <p>{pageStr}</p>
-                    <Pagination 
-                    data-testid="pagination"
-                    count={totalPages} 
-                    onChange={(e, page) => setPage(page)}
-                    />
-            </div>
+            <PaginationComponent totalPages={totalPages} setPage={setPage}/>
         </div>
     );
 }

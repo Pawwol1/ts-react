@@ -5,11 +5,11 @@ import "./userDetails.css";
 
 function UserDetails() {
     const [user, setUser] = useState<User>({
-        id: 0,
-        first_name: "",
-        last_name: "",
-        email: "",
-        avatar: ""
+        "id": 0,
+        "email": "",
+        "first_name": "",
+        "last_name": "",
+        "avatar": ""
     });
     const [totalUsers, setTotalUsers] = useState<number>(1);
     const [formMsg, setFormMsg] = useState({
@@ -104,13 +104,13 @@ function UserDetails() {
 
     return (
         <>
-        {user?.id >= 1 && user?.id <= totalUsers
+        {user?.id && user?.id >= 1 && user?.id <= totalUsers
         ? <div className='userDetails_box'>
             <div className='userDetails_box--user'>
                 <h3>{user?.first_name} {user?.last_name}</h3>
-                {!user.avatar
-                    ? <img key={user.avatar} src={user.avatar} alt="No photo"/>
-                    : <img key={user.avatar} src={user.avatar} alt="User image"/>
+                {!user?.avatar
+                    ? <img key={user?.avatar} src={user?.avatar} alt="No photo"/>
+                    : <img key={user?.avatar} src={user?.avatar} alt="User image"/>
                  } 
             </div>
             <form className='userDetails_box--form' onSubmit={handleSubmit} autoComplete='off'>
