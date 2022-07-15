@@ -4,9 +4,7 @@ import renderer from 'react-test-renderer'
 import PaginationComponent from './pagination/pagination';
 
 test('pagination should be in document', async () => {
-
   render(<PaginationComponent totalPages={2} setPage={function (value: SetStateAction<number>): void {}}/>)
-
   const paginationElement = await screen.findByTestId("pagination");
   expect(paginationElement).toBeInTheDocument(); 
 });
