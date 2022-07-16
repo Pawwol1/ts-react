@@ -3,7 +3,7 @@ import UserlistSearch from '../userlistSearch/userlistSearch';
 import PaginationComponent from './pagination/pagination';
 import "./userlist.css";
 export interface User {
-    id?: number,
+    id: number,
     first_name: string,
     last_name: string,
     email: string,

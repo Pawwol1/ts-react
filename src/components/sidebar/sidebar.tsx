@@ -29,8 +29,6 @@ function Sidebar() {
         getShibaImage();
     }, [refresh]);
 
-    console.log(shiba);
-
     const handleClick = () => {
         setRefresh(Math.random());
     }

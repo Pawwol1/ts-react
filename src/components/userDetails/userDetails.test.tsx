@@ -27,13 +27,7 @@ test('form title error should be shown', () => {
       user={user} 
       totalUsers={totalUsers} 
       formMsg={formMsg} 
-      formTitleError={true} 
-      formMsgError={false} 
-      emptySpaceError={false}
-      msgSent={false}
-      handleSubmit={function (e: React.FormEvent<Element>): void {}}
-      handleTitleChange={function (e: React.ChangeEvent<HTMLInputElement>): void {}}
-      handleMsgChange={function (e: React.ChangeEvent<HTMLTextAreaElement>): void {}}
+      formTitleError={true}
       />
     </MemoryRouter>
     )
@@ -61,14 +55,8 @@ test('form message error should be shown', () => {
       <UserPage 
       user={user} 
       totalUsers={totalUsers} 
-      formMsg={formMsg} 
-      formTitleError={false} 
-      formMsgError={true} 
-      emptySpaceError={false}
-      msgSent={false}
-      handleSubmit={function (e: React.FormEvent<Element>): void {}}
-      handleTitleChange={function (e: React.ChangeEvent<HTMLInputElement>): void {}}
-      handleMsgChange={function (e: React.ChangeEvent<HTMLTextAreaElement>): void {}}
+      formMsg={formMsg}
+      formMsgError={true}
       />
     </MemoryRouter>
     )
@@ -96,14 +84,8 @@ test('first character cannot be empty space error should be shown', () => {
       <UserPage 
       user={user} 
       totalUsers={totalUsers} 
-      formMsg={formMsg} 
-      formTitleError={false} 
-      formMsgError={false} 
+      formMsg={formMsg}
       emptySpaceError={true}
-      msgSent={false}
-      handleSubmit={function (e: React.FormEvent<Element>): void {}}
-      handleTitleChange={function (e: React.ChangeEvent<HTMLInputElement>): void {}}
-      handleMsgChange={function (e: React.ChangeEvent<HTMLTextAreaElement>): void {}}
       />
     </MemoryRouter>
     )
@@ -132,14 +114,8 @@ test('after validation and btn click success message should be shown', async () 
       <UserPage 
       user={user} 
       totalUsers={totalUsers} 
-      formMsg={formMsg} 
-      formTitleError={false} 
-      formMsgError={false} 
-      emptySpaceError={false}
+      formMsg={formMsg}
       msgSent={true}
-      handleSubmit={function (e: React.FormEvent<Element>): void {}}
-      handleTitleChange={function (e: React.ChangeEvent<HTMLInputElement>): void {}}
-      handleMsgChange={function (e: React.ChangeEvent<HTMLTextAreaElement>): void {}}
       />
     </MemoryRouter>
     )

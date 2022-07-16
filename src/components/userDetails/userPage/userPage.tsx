@@ -11,13 +11,13 @@ interface IProps {
         title: string,
         message: string
     },
-    formTitleError: boolean, 
-    formMsgError: boolean, 
-    emptySpaceError: boolean, 
-    msgSent: boolean, 
-    handleSubmit: (e: FormEvent) => void,
-    handleTitleChange: (e: ChangeEvent<HTMLInputElement>) => void,
-    handleMsgChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+    formTitleError?: boolean,
+    formMsgError?: boolean,
+    emptySpaceError?: boolean,
+    msgSent?: boolean,
+    handleSubmit?: (e: FormEvent) => void,
+    handleTitleChange?: (e: ChangeEvent<HTMLInputElement>) => void,
+    handleMsgChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 function UserPage({user, totalUsers, formMsg, formTitleError, formMsgError, emptySpaceError, msgSent, handleSubmit, handleTitleChange, handleMsgChange}: IProps) {
