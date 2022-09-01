@@ -8,7 +8,7 @@ Założeniem projektu było utworzenie responsywnej strony pobierającej liste u
 
 Link do aplikacji postawionej na serwerze: https://userslist-pw.netlify.app/
 
-Wykorzystane technologie i narzędzia: TypeScript, React, CSS, MUI, React Testing Library, REST API;
+Wykorzystane technologie i narzędzia: TypeScript, React, CSS, MUI, React Router, React Testing Library, REST API;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -22,4 +22,4 @@ The assumption of the project was to create a responsive page that downloads the
 
 Link to the application placed on the server: https://userslist-pw.netlify.app/
 
-Technologies and tools used: TypeScript, React, CSS, MUI, React Testing Library, REST API;
+Technologies and tools used: TypeScript, React, CSS, MUI, React Router, React Testing Library, REST API;
